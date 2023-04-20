@@ -20,7 +20,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use("/api", router);
 
-app.use(express.static(path.join(__dirname, "../build")));
+app.use(express.static(path.join(__dirname, "./build")));
 
 const url = process.env.URL;
 
@@ -33,6 +33,6 @@ app.listen(port, () => {
 });
 
 app.get("*", (req, res) => {
-  const file = path.join(__dirname, "../build/index.html");
+  const file = path.join(__dirname, "./build/index.html");
   res.sendFile(file);
 });
